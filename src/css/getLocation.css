@@ -1,0 +1,82 @@
+.location_section{
+    padding:20px 0;
+}
+@media(max-width:768px){
+    .marker_img{
+        display: block;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+}
+
+.location_section .active{
+    display: block;
+}
+.location_section .non_active{
+    display: none;
+}
+.location_section .map{
+   position: fixed;
+   z-index: 9999;
+   background-color: #fff;
+   top:20px;
+   right:20px;
+   bottom:20px;
+   left:20px;
+   padding: 10px;
+   border: 1px solid#888;
+   border-radius: 10px;
+
+}
+.location_section .map .close{
+ position: absolute;
+ top:10px;
+ right: 10px;
+ cursor: pointer;
+}
+.location_section .map h5{
+    margin-bottom: 15px;
+}
+.location_section .map .map_cont{
+  height: 100%;
+  border-top: 1px solid #888;
+}
+.location_section .choose_location{
+   background-color:#fff;
+   padding:20px;
+   border-radius: 20px;
+   position: relative;
+   padding-left: 70px;
+}
+.location_section .choose_location img{
+    position: absolute;
+    left: 17px;
+    width: 19px;
+    
+}
+
+.location_section .choose_location .location_btn{
+    border:1px solid #056839;
+    color:#056839;
+    border-radius:3px;
+    background-color:transparent;
+    padding:5px 7px !important;
+
+
+    transition : all .5s ease;
+    -webkit-transition : all .5s ease;
+    -moz-transition : all .5s ease;
+    -o-transition : all .5s ease;
+}
+.location_section .choose_location .location_btn:hover{
+    color:#fff;
+    background-color:#056839;
+}
+.location_section .choose_location .show_location{
+   background-color:#e3e2e2;
+   min-height:32px;
+   height: auto;
+   padding: 7px;
+   border-radius:3px;
+   margin:15px 0;
+}

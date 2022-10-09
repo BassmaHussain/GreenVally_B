@@ -1,0 +1,29 @@
+header{
+    height: 550px;
+    background-color: #f5f5f5;
+}
+header .headCont{
+     height: 100%;
+     background-image: url("../images/heade_bg.svg");
+     background-repeat: no-repeat;
+     background-position: right;
+     background-size: 50% 100%;
+     margin-top: 0;
+}
+header .head_content{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header .head_content h1{
+    font-size: 28px;
+}
+header .head_content mark{
+    color:#056839;
+    background-color: transparent;
+    padding: 0;
+}
+header .head_content img{
+   height: 125px;
+}

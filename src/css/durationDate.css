@@ -1,0 +1,129 @@
+
+.Date_form .content{
+    margin: 20px 0;
+    background-color: #fff;
+    padding: 10px 100px;
+    border-radius: 20px;
+ }
+ .Date_form .content .date_title{
+    font-weight: 200;
+    font-size: 20px;
+    margin-bottom: 20px;
+ }
+.Date_form .form-group{
+    position: relative;
+    width: 49%;
+}
+.Date_form .form-group label{
+    color: #6e6d6d;
+    font-size: 19px;
+}
+.Date_form .form-group .calender:focus{
+    
+    border: 2px solid #05b393;
+    box-shadow:none;
+
+}
+
+.Date_form .content .inputs{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(184, 182, 182);
+}
+.Date_form .content .select_time{
+    padding:20px 0;
+}
+.Date_form .content .select_time .time_title{
+    font-weight: 200;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.Date_form .content .select_time .select{
+  width : 61px;
+  display: inline-block;
+  margin-left: 10px;
+  border: none;
+  background: #ebf0f4;
+  height: 33px;
+}
+.select_time .clock_icon{
+    margin-right:10px
+}
+.select_time .input-group{
+    display:inline-block;
+    width:auto;
+}
+.select_time .input-group select{
+    width:61px !important;
+    border: none;
+    height: 33px;
+    background-color: #ebf0f4;
+
+  /*  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("../images/down-arrow.png") ;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 3px)  center;
+    background-size: 10px;
+ 
+    background: url("../images/down-arrow.png") #ebf0f4 no-repeat 98.5% !important;
+    background: url("../images/down-arrow.png") #ebf0f4 no-repeat calc(100% - 10px) !important;
+    background-size: 20px; */
+}
+.select_time .input-group .arrow{
+    position: absolute;
+    top: 7px;
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 0.2em solid #b7b4b4;
+    border-top: 0.2em solid #b7b4b4;
+    transform: rotate(135deg);
+    right: 7px;
+}
+.am_pm{
+    background-color:#ebf0f4;
+    width:87px;
+    padding:4px 5px;
+    border-radius:5px;
+    display:inline-block;
+    margin-left:10px;
+    height: auto;
+}
+.am_pm .am ,
+.am_pm .pm {
+    display:inline-block;
+    padding:1px 7px;
+    border-radius:7px;
+    cursor:pointer;
+}
+.am_pm .active{
+    background-color:#3081cc;
+    color:#fff;
+
+}
+.am_pm .non_active{
+    color:#000;
+    background-color:transparent;
+}
+.Date_form .content .payment{
+    padding-left: 10px;
+}
+.Date_form .content .payment .pay{
+    display: inline-block;
+    background-color: #d5e5dd;
+    margin: 6px 4px;
+    border-radius: 10px;
+    padding: 7px 39px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+.Date_form .content .payment .pay_active{
+    background-color:#056738;
+    color:#fff;
+}
