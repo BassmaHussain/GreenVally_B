@@ -3,9 +3,7 @@
 }
 @media(max-width:992px){
     .marker_img{
-        display: block;
-        margin: auto;
-        margin-bottom: 15px;
+        display:none;
     }
 }
 

@@ -19,8 +19,8 @@ header .head_content{
     
 }
 header .head_content .head_side_img{
-   height: 100%;
-   width: 100%;
+   height: auto;
+   max-width: 100%;
 }
 
 header .head_content h1{

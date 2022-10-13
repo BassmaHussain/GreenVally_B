@@ -23,7 +23,8 @@ const DurationDate = ()=>{
     const [selectedHour,setSelectedHour] =useState('')
     const [selectedMinut , setSelectedMinut] = useState('')
 
-   
+    console.log(selectedHour)
+    console.log(selectedMinut)
 
     const [pmAm,setPmAm]=useState('PM')
     const [cashORvisa,setCashORvisa] = useState('')

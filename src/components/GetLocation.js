@@ -16,7 +16,7 @@ const GetLocation = ()=>{
           <div className="container">
             <div className="row">
                <div className="col-lg-2">
-                  <img src={MarkerImage}  alt="..." className="marker_img" />
+                  <img src={MarkerImage}  alt="..." className="marker_img img-fluid" />
                </div>
                <div className="col-lg-10">
                     <div className="choose_location">

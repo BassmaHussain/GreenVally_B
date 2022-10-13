@@ -17,14 +17,15 @@ const Header =()=>{
                         <div className={HeaderStyle.head_desc}>
                                 <h1>Looking to <mark>save</mark>  time and get <mark>comfortable</mark> journey?</h1>
                                 <p>Discover Green valley to find your perfect rental car for a great journey and great price.</p>
-
-                                <a href="!#"><img src={appleAppImage} alt="download app"/></a>
-                                <a href="!#"><img src={androidAppImage} alt="download app"/></a>
+                                <div className="d-flex">
+                                <a href="!#"><img src={appleAppImage} className="img-fluid" alt="download app"/></a>
+                                <a href="!#"><img src={androidAppImage} className="img-fluid" alt="download app"/></a>
+                                </div>
                                 
                                 </div>
                     </div>
                     <div className={`col-lg-6 col-md-6 col-sm-12`}>
-                        <img  src={HeaderImg} alt="..." className={HeaderStyle.head_side_img} />
+                        <img  src={HeaderImg} alt="..." className={`${HeaderStyle.head_side_img} img-fluid`} />
                     </div>
                  </div>
 

@@ -110,7 +110,7 @@ const Home = ()=>{
                    <div className="row">
 
                       <div className="col-lg-8  col-sm-12">
-                         <img src={ServicesImg} alt="..." />
+                         <img src={ServicesImg} alt="..." className="img-fluid" />
                       </div>
 
                       <div className="col-lg-4  col-sm-12">
