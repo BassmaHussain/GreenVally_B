@@ -22,8 +22,18 @@ const mainCarsImages = [    {image:ImgOne, name:"Ford" , speed :"120" , type:"أ
 {image:ImgFour, name:"مرسيدس" , speed :"90" , type:"عربيه " , use : "7", year:"2021" , review:"10",star:"50"},
 {image:ImgFive, name:"جيتور" , speed :"140" , type:"أتوماتيك" , use : "8", year:"2020" , review:"6",star:"5"}   ];
 
-const availableCars=[AvImgOne,AvImgTwo,AvImgThree,AvImgFour,AvImgFive];
-const nonAvailableCars=[AvImgOne,AvImgTwo,AvImgThree,AvImgFour,AvImgFive];
+const availableCars=[
+        {img:AvImgOne,name:"هوندا",price:'1200 LE'},
+        {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
+        {img:AvImgThree,name:"هوندا",price:'1400 LE'},
+        {img:AvImgFour,name:"هوندا",price:'1100 LE'},
+        {img:AvImgFive,name:"هوندا",price:'1220 LE'} ];
+const nonAvailableCars=[
+    {img:AvImgOne,name:"هوندا",price:'1200 LE'},
+    {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
+    {img:AvImgThree,name:"هوندا",price:'1400 LE'},
+    {img:AvImgFour,name:"هوندا",price:'1100 LE'},
+    {img:AvImgFive,name:"هوندا",price:'1220 LE'} ];
 
 const User = {
     firstName : "",

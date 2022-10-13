@@ -1,19 +1,26 @@
 header{
-    height: 550px;
+    min-height: 550px;
     background-color: #f5f5f5;
+    position: relative;
 }
 header .headCont{
      height: 100%;
-     background-image: url("../images/heade_bg.svg");
-     background-repeat: no-repeat;
-     background-position: right;
-     background-size: 50% 100%;
      margin-top: 0;
 }
+header .headCont .row{
+    height: 100%;
+    align-items: center;
+}
+header .headCont .head_desc{
+    margin-top: 200px;
+}
 header .head_content{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 100%;
+    
+}
+header .head_content .head_side_img{
+   height: 100%;
+   width: 100%;
 }
 
 header .head_content h1{
@@ -27,3 +34,4 @@ header .head_content mark{
 header .head_content img{
    height: 125px;
 }
+

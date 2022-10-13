@@ -29,11 +29,13 @@ import LogoImage from "../images/logo.png"
 import num1 from "../images/1.svg"
 import num2 from "../images/2.svg"
 import num3 from "../images/3.svg"
+import Nav from "./Nav.js"
 
 
 const Home = ()=>{
     return(
         <div className={HomeStyle.home}>
+        <Nav />
            <Header />
            <ShowCars />
 
@@ -106,10 +108,12 @@ const Home = ()=>{
            <section className={HomeStyle.services}> 
                <div className="container-fluid">
                    <div className="row">
-                      <div className="col-lg-8 col-md-8">
+
+                      <div className="col-lg-8  col-sm-12">
                          <img src={ServicesImg} alt="..." />
                       </div>
-                      <div className="col-lg-4 col-md-4">
+
+                      <div className="col-lg-4  col-sm-12">
                          <div className={HomeStyle.details}>
                              <h6>Best Services</h6>
                              <h3>We Provide Many Features You Can Use</h3>
@@ -122,6 +126,7 @@ const Home = ()=>{
                              </ul>
                          </div>
                       </div>
+
                    </div>
                </div>
            </section>
@@ -143,7 +148,9 @@ const Home = ()=>{
              </div>
            </section>
 
-           {/* Download App Section */}
+           {/* End Download App Section */}
+
+           {/* Footer */}
            <footer className={HomeStyle.footer}>
                <div className="container">
                   <div className="row">

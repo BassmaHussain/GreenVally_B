@@ -87,7 +87,8 @@
 }
 .download_app .download_content{
    padding-top:30px;
-   height:250px;
+   min-height:250px;
+   height: auto;
    border-radius:20px;
    color:#fff;
    position:relative;
@@ -104,7 +105,14 @@
   right: 100px;
   top: -158px;
 }
-
+@media(max-width:992px){
+    .download_app{
+        padding: 20px 0;
+    }
+    .phone_img{
+       display: none;
+    }
+}
 /* === Footer === */
 footer{
     padding-top: 40px;

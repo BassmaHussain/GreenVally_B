@@ -14,7 +14,8 @@ import { useSelector } from 'react-redux';
 
 const AvailableCars = ()=>{
 
-   
+    const [avSlideIndex,setAvSlideIndex]=useState(0)
+    const [nonavSlideIndex,setNonAvSlideIndex]=useState(0)
     const [shown,setShown]=useState('available')
 
     const AvailableCars=useSelector((state)=>state.availableCarsReducer)
@@ -39,15 +40,53 @@ const AvailableCars = ()=>{
       }
     
     const setting = {
-        infinite:true,
-        speed:300,
-        lazyLoad: true,
-        slidesToShow:1,
-        centerMode:true,
-        autoplay:true,
-        autoplaySpeed: 2000,
-        nextArrow:<NextArrow />,
-        prevArrow:<PrevArrow />,
+      infinite:true,
+      speed:300,
+      lazyLoad: true,
+      slidesToShow:3,
+      centerMode:true,
+      autoplay:true,
+      autoplaySpeed: 2000,
+      nextArrow:<NextArrow />,
+      prevArrow:<PrevArrow />,
+      beforeChange:(current,next)=>{setAvSlideIndex(next)},
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+         }
+        ]
+
+      
+    }
+    const settingNonAv = {
+      infinite:true,
+      speed:300,
+      lazyLoad: true,
+      slidesToShow:3,
+      centerMode:true,
+      autoplay:true,
+      autoplaySpeed: 2000,
+      nextArrow:<NextArrow />,
+      prevArrow:<PrevArrow />,
+      beforeChange:(current,next)=>{setNonAvSlideIndex(next)},
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+         }
+        ]
+
       
     }
     
@@ -64,8 +103,15 @@ const AvailableCars = ()=>{
                 <div className={(shown === 'available')?'active available_car cars_show':'non_active available_car cars_show'}>
                        <h5 className='av_title'>Available Cars</h5>
                         <Slider {...setting} className="Slider">
-                            {(AvailableCars)&&AvailableCars.map((img,indx)=>(
-                                <div className="img_cont" key={indx}><img src={img} alt="..."/></div>
+                            {(AvailableCars)&&AvailableCars.map((car,indx)=>(
+                                <div className={(indx === avSlideIndex)?"slideActive slide":"slide"}>
+                                      <img src={car.img} alt="..."/>
+                                      <div className='car_details text-center'>
+                                          <span className="car-name">{car.name}</span>
+                                          <span className="car-price"> <mark>{car.price}</mark>\day</span>
+                                          <button className="rent">Rent</button>
+                                      </div>
+                                </div>
                             ))}
                         </Slider>
                 </div>
@@ -79,9 +125,15 @@ const AvailableCars = ()=>{
                  {/** slide show unavailable cars*/}
                 <div className={(shown === 'unavailable')?'active unavailable_car cars_show':'non_active unavailable_car cars_show'}>
                        <h5 className='av_title'>Unavailable Cars</h5>
-                        <Slider {...setting} className="Slider">
-                            {(NonAvailableCars)&&NonAvailableCars.map((img,indx)=>(
-                              <div className="img_cont" key={indx}><img src={img} alt="..."/></div>
+                        <Slider {...settingNonAv } className="Slider">
+                            {(NonAvailableCars)&&NonAvailableCars.map((car,indx)=>(
+                              <div className={(indx === nonavSlideIndex)?"slideActive slide":"slide"}>
+                                      <img src={car.img} alt="..."/>
+                                      <div className='car_details text-center'>
+                                          <span className="car-name">{car.name}</span>
+                                          <span className="car-price">{car.price}</span>
+                                      </div>
+                                </div>
                             ))}
                         </Slider>
                 </div>

@@ -3,26 +3,85 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .cars_show{
-    height: 500px;
+    height: auto;
     padding:30px 80px;
     background-color: #fff;
     border-radius: 20px;
     margin-bottom: 50px;
+}
+@media(max-width:768px){
+  .cars_show{
+    padding:30px 10px;
+  }
 }
 .cars_show .av_title{
    font-weight: 200;
    margin-bottom: 15px;
 }
 .cars_show .Slider{
-    background-color: #eaede5;
-    height: 400px;
+    min-height: 400px;
+    height: auto;
+    background-color: #cbfbc821;
 }
-.cars_show .Slider .img_cont,
-.cars_show .Slider .img_cont img{
-   /* object-fit: cover; */
-    width:100%;
-    height:100%;
+.cars_show .Slider .slick-list{
+    height: 100% !important;
+    padding: 27 50px;
 }
+.cars_show .Slider .slide{
+    height: 100% !important;
+    max-height: 100% !important;
+    transform:scale(0.2);
+    -webkit-transform:scale(0.2);
+    -moz-transform:scale(0.2);
+    -o-transform:scale(0.2);
+  
+    
+    transition:all .7s ease;
+    -webkit-transition:all .7s ease;
+    -moz-transition:all .7s ease;
+    -o-transition:all .7s ease;
+  
+    opacity: 0.7;
+  }
+  .cars_show .Slider .slide img{
+    height: 50%;
+    width : 100%
+  }
+  .cars_show .Slider .slide .car_details{
+     height: 50% ;
+     padding: 20px;
+  }
+  .cars_show .Slider .slide .car_details span{
+    display: block;
+    margin-bottom: 20px;
+  }
+  .cars_show .Slider .slide .car_details .car-price{
+    color: #000;
+  }
+  .cars_show .Slider .slide .car_details .car-price mark{
+    color: rgb(1, 94, 1);
+    background-color: transparent;
+    font-weight: 700;
+  }
+  .cars_show .Slider .slide .car_details .rent{
+      border:1px solid rgb(1, 94, 1);
+      background-color: rgb(1, 94, 1);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 400;
+      padding: 3px 20px;
+  }
+  .cars_show .Slider .slideActive{
+    transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    -o-transform:scale(1.1);
+  
+    opacity:1
+  }
+  .cars_show .Slider .slideActive .car-details{
+    display: block !important;
+  }
 .click{
     background-color: #fff;
     border-radius: 20px;

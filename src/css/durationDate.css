@@ -5,6 +5,11 @@
     padding: 10px 100px;
     border-radius: 20px;
  }
+ @media(max-width:768px){
+    .Date_form .content{
+        padding: 10px 10px;
+    }
+ }
  .Date_form .content .date_title{
     font-weight: 200;
     font-size: 20px;

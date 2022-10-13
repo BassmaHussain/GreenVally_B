@@ -1,5 +1,8 @@
 nav{
     background-color: transparent;
+    position: absolute !important;
+    z-index: 9999;
+    width: 100%;
 }
 .loginli{
     margin-right: 120px;
