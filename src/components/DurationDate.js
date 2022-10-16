@@ -26,6 +26,12 @@ const DurationDate = ()=>{
     console.log(selectedHour)
     console.log(selectedMinut)
 
+  const [selectedTime,setSelectedTime]=useState({
+    hour:"",
+    minuts:"",
+    pmAm:"PM"
+  })
+  console.log(selectedTime.hour+":"+selectedTime.minuts+" "+selectedTime.pmAm)
     const [pmAm,setPmAm]=useState('PM')
     const [cashORvisa,setCashORvisa] = useState('')
 
@@ -103,8 +109,8 @@ const DurationDate = ()=>{
 
                            <div className="input-group mb-3">
                                  <select className="custom-select"
-                                   value={selectedHour}
-                                   onChange={(e)=>{setSelectedHour(e.target.value);  setSelectedMinut('00')}} 
+                                   value={selectedTime.hour}
+                                   onChange={(e)=>{setSelectedTime({...selectedTime,hour:e.target.value});  }} 
                                    >
                                    <option value="" disabled selected></option>
                                      {(hoursList) && hoursList.map(hour=>(
@@ -117,8 +123,8 @@ const DurationDate = ()=>{
 
                            <div className="input-group mb-3">
                            <select className="custom-select"
-                                 value={selectedMinut}
-                                 onChange={(e)=>{setSelectedMinut(e.target.value)}}>
+                                 value={selectedTime.minuts}
+                                 onChange={(e)=>{setSelectedTime({...selectedTime,minuts:e.target.value})}}>
 
                               <option value="" disabled selected></option>
                              {(minutsList)&& minutsList.map(minuts=>(
@@ -128,8 +134,8 @@ const DurationDate = ()=>{
                      </div>
                    
                      <div className="am_pm">
-                         <span className={(pmAm === 'AM')? "am active":"am non_active"} onClick={()=>setPmAm('AM')}>AM</span>
-                         <span className={(pmAm === 'PM')? "pm active":"pm non_active"} onClick={()=>setPmAm('PM') }>PM</span>
+                         <span className={(selectedTime.pmAm === 'AM')? "am active":"am non_active"} onClick={()=>setSelectedTime({...selectedTime,pmAm:'AM'})}>AM</span>
+                         <span className={(selectedTime.pmAm === 'PM')? "pm active":"pm non_active"} onClick={()=>setSelectedTime({...selectedTime,pmAm:'PM'}) }>PM</span>
                      </div>
 
              

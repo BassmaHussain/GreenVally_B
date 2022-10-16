@@ -1,8 +1,10 @@
 import React ,{useState} from 'react';
 
+import Pagination from "react-js-pagination"
 // images
 import Slider from "react-slick";
-
+//components
+import CarsCards from "./CarsCarde.js"
 // FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {faChevronLeft} from "@fortawesome/free-solid-svg-icons" ;
@@ -20,8 +22,20 @@ const AvailableCars = ()=>{
 
     const AvailableCars=useSelector((state)=>state.availableCarsReducer)
     const NonAvailableCars=useSelector((state)=>state.nonAvailableCarsReducer)
+    
+
+    {/* pagination states */}
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [cardsPerPage, setCardsPerPage] = useState(6);
+    const lastPostIndex = currentPage * cardsPerPage;
+    const firstPostIndex = lastPostIndex - cardsPerPage;
+    const currentCards = AvailableCars.slice(firstPostIndex, lastPostIndex);
+
    
-  
+  const handleactivePagination = (pageNumber)=>{
+    setCurrentPage(pageNumber)
+  }
     
     const NextArrow = ({onClick}) => {
         return (
@@ -99,21 +113,24 @@ const AvailableCars = ()=>{
                  <div onClick={()=> setShown('available')}>Available Cars</div>
             </div>
 
-            {/** slide show available cars*/}
+            {/** Pagination show available cars*/}
                 <div className={(shown === 'available')?'active available_car cars_show':'non_active available_car cars_show'}>
                        <h5 className='av_title'>Available Cars</h5>
-                        <Slider {...setting} className="Slider">
-                            {(AvailableCars)&&AvailableCars.map((car,indx)=>(
-                                <div className={(indx === avSlideIndex)?"slideActive slide":"slide"}>
-                                      <img src={car.img} alt="..."/>
-                                      <div className='car_details text-center'>
-                                          <span className="car-name">{car.name}</span>
-                                          <span className="car-price"> <mark>{car.price}</mark>\day</span>
-                                          <button className="rent">Rent</button>
-                                      </div>
-                                </div>
-                            ))}
-                        </Slider>
+                       <div  className="all-cards">
+                           <CarsCards cars={currentCards}  />
+                       </div>
+                      
+                     
+                          <Pagination 
+                          activePage={currentPage}
+                          itemClass="page-item"
+                          linkClass="page-link"
+                          itemsCountPerPage={cardsPerPage}
+                          totalItemsCount={AvailableCars.length}
+                          onChange={handleactivePagination}
+                        />
+                    
+                        
                 </div>
 
 

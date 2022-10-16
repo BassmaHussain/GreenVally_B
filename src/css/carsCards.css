@@ -1,0 +1,33 @@
+
+ .card{
+    height: 350px;
+    width: 100%;
+ }
+ .card img{
+    height: 50%;
+    width : 100%
+  }
+.card .car_details{
+     height: 50% ;
+     padding: 20px;
+  }
+.card .car_details span{
+    display: block;
+    margin-bottom: 20px;
+  }
+.card .car_details .car-price{
+    color: #000;
+  }
+.card .car_details .car-price mark{
+    color: rgb(1, 94, 1);
+    background-color: transparent;
+    font-weight: 700;
+  }
+.card .car_details .rent{
+      border:1px solid rgb(1, 94, 1);
+      background-color: rgb(1, 94, 1);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 400;
+      padding: 3px 20px;
+  }

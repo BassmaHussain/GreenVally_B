@@ -27,7 +27,17 @@ const availableCars=[
         {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
         {img:AvImgThree,name:"هوندا",price:'1400 LE'},
         {img:AvImgFour,name:"هوندا",price:'1100 LE'},
-        {img:AvImgFive,name:"هوندا",price:'1220 LE'} ];
+        {img:AvImgFive,name:"هوندا",price:'1220 LE'},
+        {img:AvImgOne,name:"هوندا",price:'1200 LE'},
+        {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
+        {img:AvImgThree,name:"هوندا",price:'1400 LE'},
+        {img:AvImgFour,name:"هوندا",price:'1100 LE'},
+        {img:AvImgFive,name:"هوندا",price:'1220 LE'} ,
+        {img:AvImgOne,name:"هوندا",price:'1200 LE'},
+        {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
+        {img:AvImgThree,name:"هوندا",price:'1400 LE'},
+        {img:AvImgFour,name:"هوندا",price:'1100 LE'},
+        {img:AvImgFive,name:"هوندا",price:'1220 LE'}  ];
 const nonAvailableCars=[
     {img:AvImgOne,name:"هوندا",price:'1200 LE'},
     {img:AvImgTwo,name:"هوندا",price:'1300 LE'},

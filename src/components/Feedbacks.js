@@ -1,5 +1,8 @@
 import React from 'react'
-import Slider from "react-slick"
+import OwlCarousel from "react-owl-carousel";
+
+import 'owl.carousel/dist/assets/owl.carousel.css';  
+import 'owl.carousel/dist/assets/owl.theme.default.css';  
 
 // images
 import person1 from "../images/person1.svg"
@@ -19,28 +22,23 @@ const Feedbacks = ()=>{
   {name:'Osama Ali',stars:2,opinion:'Goood',img:person1}]
 
   const setting = {
-    Infinite:true,
-    slidesToShow:3,
+    loop:true,
     autoplay:true,
-    autoplaySpeed:2000,
-    centerMode:true ,
-    responsive:[
-      {
-        breakpoint:992,
-        settings:{
-          slidesToShow:2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint:768,
-        settings:{
-          slidesToShow:1,
-          slidesToScroll: 1,
-          dots:true
+    speed:1000,
+    center:true ,
+    responsiveClass: true,
+    responsive: {
+        0:{
+           items:1
+        },
+        600:{
+          items:2
+        },
+        1000:{
+          items:3,
         }
       }
-    ]
+    
   }
   return(
     <section className='feedbacks text-center'>
@@ -50,17 +48,17 @@ const Feedbacks = ()=>{
             <p className="feed_desc">These are the stories of our customers who have joined us with great pleasure when using this crazy feature.</p>
 
             <div className='reviews text-center'>
-              <Slider  {...setting}>
-                {reviews.map(review =>(
-                  <div className='rev-details '>
-                      <div className='header'>
-                            <div><img src={review.img} alt="..." />   <span className='name'>{review.name}</span></div>
-                            <span >{review.stars} <FontAwesomeIcon icon={faStar} className='star-icon'/></span>
-                      </div>
-                      <p>{review.opinion}</p>
-                  </div>
-                ))}
-              </Slider>
+             {(reviews.length) &&<OwlCarousel  {...setting}>
+              {reviews.map(review =>(
+                <div className='rev-details '>
+                    <div className='header'>
+                          <div><img src={review.img} alt="..." />   <span className='name'>{review.name}</span></div>
+                          <span >{review.stars} <FontAwesomeIcon icon={faStar} className='star-icon'/></span>
+                    </div>
+                    <p>{review.opinion}</p>
+                </div>
+              ))}
+            </OwlCarousel>} 
             </div>
        </div>
     </section>
