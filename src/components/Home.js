@@ -1,5 +1,5 @@
-import React from "react"
-
+import React ,{useState,useEffect}from "react"
+import { useTranslation } from "react-i18next"
 // css
 import HomeStyle from "../css/home.module.css"
 
@@ -32,32 +32,40 @@ import num3 from "../images/3.svg"
 import Nav from "./Nav.js"
 
 
+
 const Home = ()=>{
+    const {t} = useTranslation()
+
+    const [currentLangCode, setCurrentLangCode ] = useState('')
+   
+    useEffect(()=>{
+       setCurrentLangCode(localStorage.getItem("i18nextLng"))
+    })
+
     return(
-        <div className={HomeStyle.home}>
-        <Nav />
+        <div className={HomeStyle.home}  dir={(currentLangCode === "ar")?"rtl":"ltr"}>
+        <Nav siteLng={currentLangCode}/>
            <Header />
-           <ShowCars />
+           <ShowCars siteLng={currentLangCode}/>
 
            {/* performance steps */}
            <section className={`${HomeStyle.performance_steps}`}>
               <div className="container">
 
-               <h6  className={`${HomeStyle.small_title} text-center`}>How It Work</h6>
-               <h2  className={`${HomeStyle.steps_title} text-center`}>3 steps to high performance</h2>
+               <h6  className={`${HomeStyle.small_title} text-center`}>{t("performance_steps_small_title")}</h6>
+               <h2  className={`${HomeStyle.steps_title} text-center`}>{t("performance_steps_title")}</h2>
 
-                <div className="row">
+                <div className="row" style={{textAlign:(currentLangCode==="ar")?"right":"left"}}>
 
                    <div className="col-lg-4 col-md-6 col-sm-12">
                       <div className={HomeStyle.step}>
-                           <img src={num1} alt="..." className={HomeStyle.step_number}/>
+                           <img src={num1} alt="..." className={`${HomeStyle.step_number} ${(currentLangCode==="ar")?HomeStyle.left_zero:HomeStyle.right_zero}`}  />
                             
                             <div className={HomeStyle.step_content}>
                                 <span className={`${HomeStyle.icon}`}> <FontAwesomeIcon icon={faArrowRightArrowLeft} /></span>
-                                <h3>Choose a location</h3>
+                                <h3>{t("step_one_H")}</h3>
                                 <p>
-                                    The first step is to choose where you are as we will pick you
-                                    from th required place immediality with a high performance
+                                    {t("step_one_P")}
                                 </p>
                             </div>
                            
@@ -66,13 +74,12 @@ const Home = ()=>{
 
                    <div className="col-lg-4 col-md-6 col-sm-12">
                         <div className={HomeStyle.step}>
-                        <img src={num2} alt="..." className={HomeStyle.step_number}/>
+                        <img src={num2} alt="..."  className={`${HomeStyle.step_number} ${(currentLangCode==="ar")?HomeStyle.left_zero:HomeStyle.right_zero}`}/>
                             <div className={HomeStyle.step_content}>
                                     <span className={`${HomeStyle.icon}`}> <FontAwesomeIcon icon={faCalendarCheck} /> </span>
-                                    <h3>Pick the date</h3>
+                                    <h3>{t("step_two_H")}</h3>
                                     <p>
-                                        By useing the calender you will pick the required date and time to go to your 
-                                        journey which is an imprtant step
+                                        {t("step_two_P")}
                                     </p>
                             </div>
                         </div>
@@ -80,14 +87,13 @@ const Home = ()=>{
 
                    <div className="col-lg-4 col-md-6 col-sm-12">
                             <div className={HomeStyle.step}>
-                            <img src={num3} alt="..." className={HomeStyle.step_number}/>
+                            <img src={num3} alt="..."  className={`${HomeStyle.step_number} ${(currentLangCode==="ar")?HomeStyle.left_zero:HomeStyle.right_zero}`}/>
 
                             <div className={HomeStyle.step_content}>
                                     <span className={`${HomeStyle.icon}`}> <FontAwesomeIcon icon={faCarSide} /> </span>
-                                    <h3>Check your rental car</h3>
+                                    <h3>{t("step_three_H")}</h3>
                                     <p>
-                                        With a variety of cars you can pick whatever you need,
-                                        as it will be very clean and the driver will save your own privacy
+                                        {t("step_three_P")}
                                     </p>
                             </div>
                             
@@ -100,12 +106,12 @@ const Home = ()=>{
            </section>
            {/* End  performance steps*/}
            
-           <GetLocation />
-           <DurationDate />
-           <AvailableCars />
+           <GetLocation siteLng={currentLangCode}/>
+           <DurationDate siteLng={currentLangCode}/>
+           <AvailableCars siteLng={currentLangCode}/>
 
            {/* Services */}
-           <section className={HomeStyle.services}> 
+           <section className={HomeStyle.services}   style={{textAlign:(currentLangCode==="ar")?"right":"left"}}> 
                <div className="container-fluid">
                    <div className="row">
 
@@ -115,14 +121,14 @@ const Home = ()=>{
 
                       <div className="col-lg-4  col-sm-12">
                          <div className={HomeStyle.details}>
-                             <h6>Best Services</h6>
-                             <h3>We Provide Many Features You Can Use</h3>
-                             <p>You can explore the features that we provide with fun and have their own functions each feature.</p>
+                             <h6>{t('services_small_title')}</h6>
+                             <h3>{t('services_title')}</h3>
+                             <p>{t('services_text')}</p>
                              <ul className="list-unstyled">
-                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon}/>Deals with every budget</li>
-                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon} />24/7 with a high quality in each minute</li>
-                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon} />Best price for huge journey</li>
-                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon} />Clean cars and high privacy.</li>
+                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon}/>{t('service_one')}</li>
+                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon} />{t('service_two')}</li>
+                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon} />{t('service_three')}</li>
+                                 <li> <FontAwesomeIcon icon={faCircleCheck}  className={HomeStyle.icon} />{t('service_four')}</li>
                              </ul>
                          </div>
                       </div>
@@ -132,14 +138,14 @@ const Home = ()=>{
            </section>
            {/* End Services */}
 
-           <Feedbacks />
+           <Feedbacks siteLng={currentLangCode}/>
 
            {/* Download App Section */}
            <section className={HomeStyle.download_app}>
              <div className="container-fluid">
                <div className={HomeStyle.download_content}>
                   <div className="container">
-                        <h4>For more services, download the free green valley app</h4>
+                        <h4>{t("download_app")}</h4>
                         <img src={AndroidDownload}  alt="..." />
                         <img src={AppleDownload}    alt="..." />
                   </div>
@@ -151,23 +157,21 @@ const Home = ()=>{
            {/* End Download App Section */}
 
            {/* Footer */}
-           <footer className={HomeStyle.footer}>
+           <footer className={HomeStyle.footer}  style={{textAlign:(currentLangCode==="ar")?"right":"left"}}>
                <div className="container">
                   <div className="row">
 
                      <div className="col-lg-4 col-md-6">
                         <div className={HomeStyle.logo}>
                            <img src={LogoImage} alt="..." />
-                           <p>
-                               A company to rent cars for anyone who needs a great journey with a <br /> high privacy
-                           </p>
+                           <p  dangerouslySetInnerHTML={{__html:t("footer_text")}}></p>
                         </div>
                      </div>
 
 
                      <div className="col-lg-3 col-md-6">
                          <div className={HomeStyle.contact}>
-                            <h5>Contact US</h5>
+                            <h5>{t("contact_us")}</h5>
                             <ul className="list-unstyled">
                                 <li><FontAwesomeIcon  icon={faEnvelope} />  greenvalley@gmail.com</li>
                                 <li><FontAwesomeIcon icon={faPhone}/>   (010) 123 - 5772</li>
@@ -178,11 +182,11 @@ const Home = ()=>{
 
                      <div className="col-lg-2 col-md-6">
                          <div className={HomeStyle.links}>
-                            <h5>Useful Links</h5>
+                            <h5>{t("usefull_links")}</h5>
                             <ul className="list-unstyled">
-                                <li><a href="!#">Car lists</a></li>
-                                <li><a href="!#">Rent car</a></li>
-                                <li><a href="!#">Feedbacks</a></li>
+                                <li><a href="!#">{t("car_lists")}</a></li>
+                                <li><a href="!#">{t("rent_car")}</a></li>
+                                <li><a href="!#">{t("feedbacks")}</a></li>
                             </ul>
                          </div>
                      </div>

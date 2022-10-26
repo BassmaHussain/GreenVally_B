@@ -44,13 +44,22 @@
    padding:20px;
    border-radius: 20px;
    position: relative;
-   padding-left: 70px;
+}
+.location_section .choose_location_rtl{
+    padding-right: 70px;
+}
+.location_section .choose_location_ltr{
+    padding-left: 70px;
 }
 .location_section .choose_location img{
     position: absolute;
+    width: 19px; 
+}
+.location_section .choose_location .img_ltr{
     left: 17px;
-    width: 19px;
-    
+}
+.location_section .choose_location .img_rtl{
+    right: 17px;
 }
 
 .location_section .choose_location .location_btn{

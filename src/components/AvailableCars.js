@@ -10,12 +10,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {faChevronLeft} from "@fortawesome/free-solid-svg-icons" ;
 import {  faChevronRight } from "@fortawesome/free-solid-svg-icons" ;
 
+//translation 
+import { useTranslation } from 'react-i18next';
+
+
 //css
 import "../css/availbleCar.css"
 import { useSelector } from 'react-redux';
 
-const AvailableCars = ()=>{
+const AvailableCars = ({siteLng})=>{
 
+  const { t } =useTranslation();
     const [avSlideIndex,setAvSlideIndex]=useState(0)
     const [nonavSlideIndex,setNonAvSlideIndex]=useState(0)
     const [shown,setShown]=useState('available')
@@ -105,30 +110,32 @@ const AvailableCars = ()=>{
     }
     
     return(
-        <div>
+        <section  style={{textAlign:(siteLng==="ar")?"right":"left"}}>
             <div className='container'>
 
           {/** click to show available cars */}
             <div className={(shown === 'unavailable')?' active click text-center':'non_active click text-center'}>
-                 <div onClick={()=> setShown('available')}>Available Cars</div>
+                 <div onClick={()=> setShown('available')}>{t('available_cars')}</div>
             </div>
 
             {/** Pagination show available cars*/}
                 <div className={(shown === 'available')?'active available_car cars_show':'non_active available_car cars_show'}>
-                       <h5 className='av_title'>Available Cars</h5>
+                       <h5 className='av_title'>{t('available_cars')}</h5>
                        <div  className="all-cards">
                            <CarsCards cars={currentCards}  />
                        </div>
                       
                      
-                          <Pagination 
-                          activePage={currentPage}
-                          itemClass="page-item"
-                          linkClass="page-link"
-                          itemsCountPerPage={cardsPerPage}
-                          totalItemsCount={AvailableCars.length}
-                          onChange={handleactivePagination}
-                        />
+                         <div className='text-center d-flex'>
+                                <Pagination 
+                                activePage={currentPage}
+                                itemClass="page-item"
+                                linkClass="page-link"
+                                itemsCountPerPage={cardsPerPage}
+                                totalItemsCount={AvailableCars.length}
+                                onChange={handleactivePagination}
+                              />
+                         </div>
                     
                         
                 </div>
@@ -136,13 +143,13 @@ const AvailableCars = ()=>{
 
                 {/**click to show unavailable cars */}
                 <div className={(shown === 'available')?' active click text-center':'non_active click text-center'}>
-                    <div onClick={()=> setShown('unavailable')}>Unavailable Cars</div>
+                    <div onClick={()=> setShown('unavailable')}>{t('unavailable_cars')}</div>
                 </div>
 
                  {/** slide show unavailable cars*/}
                 <div className={(shown === 'unavailable')?'active unavailable_car cars_show':'non_active unavailable_car cars_show'}>
-                       <h5 className='av_title'>Unavailable Cars</h5>
-                        <Slider {...settingNonAv } className="Slider">
+                       <h5 className='av_title'>{t('unavailable_cars')}</h5>
+                        <Slider {...settingNonAv } className="Slider" rtl={(siteLng==="ar")?true:false}>
                             {(NonAvailableCars)&&NonAvailableCars.map((car,indx)=>(
                               <div className={(indx === nonavSlideIndex)?"slideActive slide":"slide"}>
                                       <img src={car.img} alt="..."/>
@@ -155,10 +162,10 @@ const AvailableCars = ()=>{
                         </Slider>
                 </div>
 
-                <button className=' continue'>Continue</button>
+                <button className=' continue'>{t('continue')}</button>
 
             </div>
-        </div>
+        </section>
     )
 }
 

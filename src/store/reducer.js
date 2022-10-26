@@ -23,21 +23,21 @@ const mainCarsImages = [    {image:ImgOne, name:"Ford" , speed :"120" , type:"أ
 {image:ImgFive, name:"جيتور" , speed :"140" , type:"أتوماتيك" , use : "8", year:"2020" , review:"6",star:"5"}   ];
 
 const availableCars=[
-        {img:AvImgOne,name:"هوندا",price:'1200 LE'},
-        {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
-        {img:AvImgThree,name:"هوندا",price:'1400 LE'},
-        {img:AvImgFour,name:"هوندا",price:'1100 LE'},
-        {img:AvImgFive,name:"هوندا",price:'1220 LE'},
-        {img:AvImgOne,name:"هوندا",price:'1200 LE'},
-        {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
-        {img:AvImgThree,name:"هوندا",price:'1400 LE'},
-        {img:AvImgFour,name:"هوندا",price:'1100 LE'},
-        {img:AvImgFive,name:"هوندا",price:'1220 LE'} ,
-        {img:AvImgOne,name:"هوندا",price:'1200 LE'},
-        {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
-        {img:AvImgThree,name:"هوندا",price:'1400 LE'},
-        {img:AvImgFour,name:"هوندا",price:'1100 LE'},
-        {img:AvImgFive,name:"هوندا",price:'1220 LE'}  ];
+        {img:AvImgOne,name:"هوندا",price:'1200'},
+        {img:AvImgTwo,name:"هوندا",price:'1300'},
+        {img:AvImgThree,name:"هوندا",price:'1400'},
+        {img:AvImgFour,name:"هوندا",price:'1100'},
+        {img:AvImgFive,name:"هوندا",price:'1220'},
+        {img:AvImgOne,name:"هوندا",price:'1200'},
+        {img:AvImgTwo,name:"هوندا",price:'1300'},
+        {img:AvImgThree,name:"هوندا",price:'1400'},
+        {img:AvImgFour,name:"هوندا",price:'1100'},
+        {img:AvImgFive,name:"هوندا",price:'1220'} ,
+        {img:AvImgOne,name:"هوندا",price:'1200'},
+        {img:AvImgTwo,name:"هوندا",price:'1300'},
+        {img:AvImgThree,name:"هوندا",price:'1400'},
+        {img:AvImgFour,name:"هوندا",price:'1100'},
+        {img:AvImgFive,name:"هوندا",price:'1220'}  ];
 const nonAvailableCars=[
     {img:AvImgOne,name:"هوندا",price:'1200 LE'},
     {img:AvImgTwo,name:"هوندا",price:'1300 LE'},
@@ -52,7 +52,15 @@ const User = {
     password : ""
 }
 
+const userLanguage = "en"
 
+const langReducer =(state = userLanguage , action)=>{
+    if(action.type === "CHANGELANG"){
+        state = action.payload 
+        return state 
+    }
+  return state
+}
 const userReducer = (state = User , action)=>{
     if(action.type === "FIRSTNAME"){
        return ({...state , firstName:action.payload})
@@ -85,7 +93,7 @@ const nonAvailableCarsReducer =(state = nonAvailableCars , action)=>{
     return state;
 }
 
-const reducer = combineReducers({userReducer,mainCarsImagesReducer,availableCarsReducer,nonAvailableCarsReducer})
+const reducer = combineReducers({userReducer,mainCarsImagesReducer,availableCarsReducer,nonAvailableCarsReducer,langReducer})
 
 const store = createStore(reducer)
 

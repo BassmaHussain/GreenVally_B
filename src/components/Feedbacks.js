@@ -7,13 +7,20 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 // images
 import person1 from "../images/person1.svg"
 import person2 from "../images/person2.jpg"
+
+//translation
+import { useTranslation } from 'react-i18next';
+
 // css
 import "../css/feedback.css"
 //icons 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from "@fortawesome/free-solid-svg-icons" ;
 
-const Feedbacks = ()=>{
+
+const Feedbacks = ({siteLng})=>{
+  const {t}= useTranslation()
+
   const reviews=[
   {name:'Ahmed Ali',stars:4.5,opinion:'Goooooood',img:person1},
   {name:'Mazen Amr',stars:5,opinion:'nice',img:person2},
@@ -43,9 +50,9 @@ const Feedbacks = ()=>{
   return(
     <section className='feedbacks text-center'>
        <div className='container-fluid'>
-            <h6 className="small_title">Feedbacks</h6>
-            <h4>Trusted By Thousands Of Happy Customer</h4>
-            <p className="feed_desc">These are the stories of our customers who have joined us with great pleasure when using this crazy feature.</p>
+            <h6 className="small_title">{t('feedbacks_small_title')}</h6>
+            <h4>{t('feedbacks_title')}</h4>
+            <p className="feed_desc">{t('feedbacks_text')}</p>
 
             <div className='reviews text-center'>
              {(reviews.length) &&<OwlCarousel  {...setting}>

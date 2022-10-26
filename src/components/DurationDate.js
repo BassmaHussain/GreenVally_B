@@ -1,5 +1,4 @@
-import React, {  useEffect, useState } from "react";
-import Select from "react-select"
+import React, {  useState } from "react";
 
 /* react datePicker */
 import DatePicker from "react-datepicker"
@@ -9,30 +8,28 @@ import "react-datepicker/dist/react-datepicker.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 
+
+//translation
+import { useTranslation } from "react-i18next";
+
+
+
 /* css files */
 import "../css/durationDate.css"
 
 
-const DurationDate = ()=>{
+const DurationDate = ({siteLng})=>{
 
+  const { t } = useTranslation();
   const [selectedStartDate , setSelectedStartDate] = useState(null)
   const [selectedEndDate , setSelectedEndDate] = useState(null)
-  const [startDate,setstartDate]=useState("")
-  const [endDate,setEndDate]=useState("")
-
-    const [selectedHour,setSelectedHour] =useState('')
-    const [selectedMinut , setSelectedMinut] = useState('')
-
-    console.log(selectedHour)
-    console.log(selectedMinut)
 
   const [selectedTime,setSelectedTime]=useState({
     hour:"",
     minuts:"",
     pmAm:"PM"
   })
-  console.log(selectedTime.hour+":"+selectedTime.minuts+" "+selectedTime.pmAm)
-    const [pmAm,setPmAm]=useState('PM')
+  
     const [cashORvisa,setCashORvisa] = useState('')
 
     
@@ -43,26 +40,15 @@ const DurationDate = ()=>{
  
 
  
-  useEffect(()=>{
-    if(selectedStartDate !== null){
-      setstartDate(`${selectedStartDate.getDate()}/${selectedStartDate.getMonth()+1}/${selectedStartDate.getFullYear()}`)
-    }
-    if(selectedEndDate !== null){
-      setEndDate(`${selectedEndDate.getDate()}/${selectedEndDate.getMonth()+1}/${selectedEndDate.getFullYear()}`)
-
-    }
-    
-  },[selectedStartDate,selectedEndDate])
-   
 
     return(
-        <div className="Date_form">
+        <div className="Date_form"   style={{textAlign:(siteLng==="ar")?"right":"left"}}>
           <div className="container">  
           <div className="row">
           <div className="col-lg-2"></div>
           <div className="col-lg-10 col-sm-12">
           <div className="content">
-          <h3 className="date_title">Duration Date</h3>
+          <h3 className="date_title">{t('duration_date')}</h3>
           <form>
 
            {/* choose date*/}
@@ -70,7 +56,7 @@ const DurationDate = ()=>{
 
                 {/* from date*/}
                <div className="form-group">
-                     <label htmlFor="exampleInputDate1">From</label>
+                     <label htmlFor="exampleInputDate1">{t('from')}</label>
                        <DatePicker  
                            selected={selectedStartDate} 
                            onChange={(date)=>{setSelectedStartDate(date)}}
@@ -85,7 +71,7 @@ const DurationDate = ()=>{
 
               {/* to date*/}
              <div className="form-group">
-                     <label htmlFor="exampleInputDate2">To</label>
+                     <label htmlFor="exampleInputDate2">{t('to')}</label>
                      <DatePicker  
                          selected={selectedEndDate} 
                          onChange={(date)=>{setSelectedEndDate(date)}}
@@ -104,7 +90,7 @@ const DurationDate = ()=>{
                {/* select time */}
                <div className="select_time">
 
-               <h4 className="time_title">Pick Up Time : </h4>
+               <h4 className="time_title">{t('pick_time')} : </h4>
                    <FontAwesomeIcon icon={faClock} className="clock_icon"/>
 
                            <div className="input-group mb-3">
@@ -145,9 +131,9 @@ const DurationDate = ()=>{
           </form>
 
               <div className="payment" >
-                   <h4>Payment Method : </h4>
-                   <span className={(cashORvisa === 'cash')? "pay pay_active":"pay"} onClick={()=> setCashORvisa('cash')}>cash</span>
-                   <span className={(cashORvisa === 'visa')? "pay pay_active":"pay"} onClick={()=> setCashORvisa('visa')}>viza</span>
+                   <h4>{t('payment_method')} : </h4>
+                   <span className={(cashORvisa === 'cash')? "pay pay_active":"pay"} onClick={()=> setCashORvisa('cash')}>{t('visa')}</span>
+                   <span className={(cashORvisa === 'visa')? "pay pay_active":"pay"} onClick={()=> setCashORvisa('visa')}>{t('cash')}</span>
               </div>
 
               

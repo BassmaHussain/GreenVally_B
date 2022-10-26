@@ -30,14 +30,7 @@ const Login =()=>{
   }
 
   const submitLogin = (e)=>{
-       e.preventDefault();
-       if(logedPhone === userData.phone && logedPass === userData.password){
-           console.log("login Success")
-           console.log(userData)
-       } else{
-          console.log("login Faild")
-          console.log(userData)
-       }    
+       e.preventDefault();   
   }
 
     return(
@@ -78,7 +71,7 @@ const Login =()=>{
 
 
                         <div className={LoginStyle.forget}>
-                           <a href="!#">Forget your password ?</a>
+                          <NavLink to="/forgetpass">Forget your password ?</NavLink>
                         </div>
 
                         <div className={`${LoginStyle.google} ${LoginStyle.log_with}`}>
@@ -93,6 +86,8 @@ const Login =()=>{
             </div>
           
           </div>
+        
+                         
           </div>
     )
 }

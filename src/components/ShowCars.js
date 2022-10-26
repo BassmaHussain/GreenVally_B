@@ -15,9 +15,12 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons" ;
 import {  faChevronRight } from "@fortawesome/free-solid-svg-icons" ;
 import { useSelector } from "react-redux";
 
+import { useTranslation} from 'react-i18next';
 
-const ShowCars = ()=>{
+const ShowCars = ({siteLng})=>{
 
+
+     const {t} = useTranslation()
     const [imageIndex,setImageIndex]=useState(0)
 
     const Images = useSelector((state)=> state.mainCarsImagesReducer)
@@ -66,24 +69,18 @@ const ShowCars = ()=>{
     
 
     return(
-        <div className="cars_section">
+        <section className="cars_section" style={{textAlign:(siteLng==="ar")?"right":"left"}} >
           <div className="container">
-                <h6 className="small_title">cars</h6>
+                <h6 className="small_title">{t("show_cars_small_title")}</h6>
 
-                <h3>
-                        Check our best <br />
-                        rental cars for your ride
-                </h3>
+                <h3 dangerouslySetInnerHTML={{__html:t("show_cars_head")}} ></h3>
 
-                <p>
-                        You can explore the cares that we provide with fun and <br />
-                        have their own functions each feature.
-                </p>
+                <p  dangerouslySetInnerHTML={{__html:t("show_cars_text")}}></p>
 
                 {/* carse 3D slick slider */}
 
                     <div  className="sliderContainer"  >
-                           <Slider {...setting} className="Slider">
+                           <Slider {...setting} className="Slider" rtl={(siteLng==="ar")?true:false}>
                                 {Images.map((car,index)=>(
                                     <div  key={index} className={(index === imageIndex)?"slideActive slide":"slide"}>
                                        {/* car image */}
@@ -137,7 +134,7 @@ const ShowCars = ()=>{
                            </Slider>
                     </div>
           </div>
-        </div>
+        </section>
     )
 }
 

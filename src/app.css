@@ -2,6 +2,7 @@
   
   html,body {
     /* this makes sure the padding and the border is included in the box sizing */
+    font-family: 'Cairo', sans-serif;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

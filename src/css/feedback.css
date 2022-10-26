@@ -46,3 +46,6 @@
     font-size:20px;
     color:#000;
 }
+.owl-carousel{
+    direction: ltr !important;
+}

@@ -8,19 +8,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
 
-const GetLocation = ()=>{
+const GetLocation = ({siteLng})=>{
     const [showFromLoc,setShowFromLoc] = useState(false)
     const [showToLoc,setShowToLoc] = useState(false)
       return(
-        <section className="location_section">
+        <section className="location_section"   style={{textAlign:(siteLng==="ar")?"right":"left"}} >
           <div className="container">
             <div className="row">
                <div className="col-lg-2">
                   <img src={MarkerImage}  alt="..." className="marker_img img-fluid" />
                </div>
                <div className="col-lg-10">
-                    <div className="choose_location">
-                            <img src={pointTopoint} alt="..." />
+                    <div className={`choose_location ${(siteLng==="ar")?"choose_location_rtl":"choose_location_ltr"}`}>
+                            <img src={pointTopoint} alt="..."   className={(siteLng==="ar")?"img_rtl":"img_ltr"} />
                             <button className="location_btn" onClick={()=>setShowFromLoc(true)}>Pick Up</button>
                             <div className="show_location"></div>
                             <button className="location_btn" onClick={()=>setShowToLoc(true)} >Drop off</button>

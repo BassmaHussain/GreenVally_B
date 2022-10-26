@@ -21,19 +21,30 @@
 }
 .performance_steps .step{
     position: relative;
-    margin-bottom:27px;
+    margin-bottom:60px;
 }
 .performance_steps .step .step_number{
    position: absolute;
    font-size: 213px;
-   right: 0;
    z-index: 2;
    bottom:0;
+}
+.right_zero{
+    right: 0;
+}
+.left_zero{
+    left:0;
 }
 .performance_steps .step .step_content{
   position: relative;
   z-index: 1;
 }
+  @media(max-width:992px){
+    .performance_steps .step .step_content{
+        text-align:center !important;
+     }
+}
+
 .performance_steps .step .step_content .icon {
     color: #056839;
     background-color: #0489d72e;
@@ -64,9 +75,12 @@
 .services .details h6{
    color: #2fab73;
 }
+.services .details ul li{
+    margin-bottom: 10px;
+}
 .services .details ul .icon{
     color: #2fab73;
-    margin-right: 20px;
+    margin:0 20px;
 }
 .services .details{
     display: flex;
@@ -130,7 +144,9 @@ footer .logo p{
     color: #747070;
     margin-top: 10px;
 }
-
+footer  ul{
+    padding-right: 0 !important;
+}
 footer .contact ul li,
 footer .links ul li{
     margin-bottom: 10px;

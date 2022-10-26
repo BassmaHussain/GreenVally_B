@@ -13,11 +13,21 @@ nav{
     font-weight: 600 !important;
     border: none;
 }
-@media(max-width:992px){
-    .loginBtn{
-        color :#547c0e!important;
-        margin-bottom: 20px;
-    }
+.icon_global{
+   /* margin: 0 39px; */
+    color: #fff;
+    cursor: pointer;
+}
+.icon_global .lang_drop{
+    margin-right: 159px;
+}
+.icon_global .tog_btn{
+   color: #fff !important;
+   font-size: 20px;
+}
+.icon_global .tog_btn:focus{
+    box-shadow: none;
+    outline: 0;;
 }
 .loginBtn:focus{
     box-shadow: none !important;
@@ -38,4 +48,56 @@ nav{
 .RegistBtn:hover{
     background-color: #547c0e;
     color:#fff !important;
+}
+@media(max-width:991px) {
+    .collapseStyle{
+        background-color: #fff !important;
+        padding:10px 20px !important;
+     }
+
+     .loginBtn{
+        color :#547c0e!important;
+        margin-bottom: 20px;
+    }
+
+    .icon_global{
+        margin: 0 !important;
+        color: #000 !important;
+    }
+
+    .icon_global .tog_btn{
+        color: #000 !important;
+     }
+
+    .collapseStyle ul li{
+        margin-bottom: 20px !important;
+        border-bottom: 1px solid #cdcaca;
+        margin-right: 0;
+        padding-bottom: 6px;
+    }
+}
+
+
+/*rtl */
+
+.collapse_rtl ul{
+   margin-right: 90px !important;
+}
+.collapse_rtl ul .loginli button{
+   margin-left: 150px;
+   color:#547c0e!important; ;
+}
+@media(max-width:991px) {
+    .collapse_rtl ul .loginli button{
+        margin-left: 0;
+     }
+}
+.collapse_rtl ul  .icon_global .tog_btn span{
+    color: #000;
+}
+.collapse_rtl ul .icon_global  .tog_btn::after{
+    border-top: 0.3em solid #000 !important;
+}
+.collapse_rtl ul .icon_global .drop_menu{
+    min-width: 100px !important;
 }

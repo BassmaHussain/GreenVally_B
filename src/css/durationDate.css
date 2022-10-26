@@ -53,7 +53,7 @@
   height: 33px;
 }
 .select_time .clock_icon{
-    margin-right:10px
+    margin:0 10px
 }
 .select_time .input-group{
     display:inline-block;
@@ -96,7 +96,7 @@
     padding:4px 5px;
     border-radius:5px;
     display:inline-block;
-    margin-left:10px;
+    margin:0 10px;
     height: auto;
 }
 .am_pm .am ,
