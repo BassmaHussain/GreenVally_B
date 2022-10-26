@@ -5,10 +5,10 @@ import HeaderStyle from "../css/Header.module.css"
 import HeaderImg from "../images/heade_bg.svg"
 import { useTranslation} from 'react-i18next';
 
-const Header =()=>{
+const Header =({siteLng})=>{
     const { t } = useTranslation()
     return(
-        <header>
+        <header  style={{textAlign:(siteLng==="ar")?"right":"left"}}>
            <div className={`${HeaderStyle.headCont}  container`}>
                 
 

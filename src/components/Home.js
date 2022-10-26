@@ -45,7 +45,7 @@ const Home = ()=>{
     return(
         <div className={HomeStyle.home}  dir={(currentLangCode === "ar")?"rtl":"ltr"}>
         <Nav siteLng={currentLangCode}/>
-           <Header />
+           <Header siteLng={currentLangCode}/>
            <ShowCars siteLng={currentLangCode}/>
 
            {/* performance steps */}
