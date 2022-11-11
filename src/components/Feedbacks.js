@@ -56,8 +56,8 @@ const Feedbacks = ({siteLng})=>{
 
             <div className='reviews text-center'>
              {(reviews.length) &&<OwlCarousel  {...setting}>
-              {reviews.map(review =>(
-                <div className='rev-details '>
+              {reviews.map((review,indx )=>(
+                <div className='rev-details ' key={indx}>
                     <div className='header'>
                           <div><img src={review.img} alt="..." />   <span className='name'>{review.name}</span></div>
                           <span >{review.stars} <FontAwesomeIcon icon={faStar} className='star-icon'/></span>

@@ -1,0 +1,20 @@
+[
+    {
+        "firstName" : "Amr",
+        "lastName" : "Faisal",
+        "phone":"123",
+        "password":"1230"
+    },
+    {
+        "firstName" : "Lian",
+        "lastName" : "Amr",
+        "phone":"1234",
+        "password":"12340"
+    },
+    {
+        "firstName" : "Mazen",
+        "lastName" : "Amr",
+        "phone":"1235",
+        "password":"12350"
+    }
+]

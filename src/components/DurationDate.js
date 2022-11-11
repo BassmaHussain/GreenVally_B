@@ -98,7 +98,7 @@ const DurationDate = ({siteLng})=>{
                                    value={selectedTime.hour}
                                    onChange={(e)=>{setSelectedTime({...selectedTime,hour:e.target.value});  }} 
                                    >
-                                   <option value="" disabled selected></option>
+                                   <option value="" disabled ></option>
                                      {(hoursList) && hoursList.map(hour=>(
                                        <option value={hour} key={hour}>{hour}</option>
                                      )) }
@@ -112,7 +112,7 @@ const DurationDate = ({siteLng})=>{
                                  value={selectedTime.minuts}
                                  onChange={(e)=>{setSelectedTime({...selectedTime,minuts:e.target.value})}}>
 
-                              <option value="" disabled selected></option>
+                              <option value="" disabled ></option>
                              {(minutsList)&& minutsList.map(minuts=>(
                                <option value={minuts}  key={minuts}>{minuts}</option>
                              ))}

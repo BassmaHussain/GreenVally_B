@@ -1,4 +1,6 @@
-.content{
+.content_ltr{
     width:40%;
-    margin: 20px auto !important;
+}
+.content_rtl{
+    width: 50%;
 }

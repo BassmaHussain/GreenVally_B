@@ -151,7 +151,7 @@ const AvailableCars = ({siteLng})=>{
                        <h5 className='av_title'>{t('unavailable_cars')}</h5>
                         <Slider {...settingNonAv } className="Slider" rtl={(siteLng==="ar")?true:false}>
                             {(NonAvailableCars)&&NonAvailableCars.map((car,indx)=>(
-                              <div className={(indx === nonavSlideIndex)?"slideActive slide":"slide"}>
+                              <div className={(indx === nonavSlideIndex)?"slideActive slide":"slide"} key={indx}>
                                       <img src={car.img} alt="..."/>
                                       <div className='car_details text-center'>
                                           <span className="car-name">{car.name}</span>

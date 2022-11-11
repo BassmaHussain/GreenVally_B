@@ -1,5 +1,5 @@
 
-import React ,{useState} from "react";
+import React ,{useState , useEffect} from "react";
 import Slider from "react-slick";
 
 // css
@@ -14,7 +14,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons" ;
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons" ;
 import {  faChevronRight } from "@fortawesome/free-solid-svg-icons" ;
 import { useSelector } from "react-redux";
-
+import axios from "axios";
 import { useTranslation} from 'react-i18next';
 
 const ShowCars = ({siteLng})=>{
@@ -23,8 +23,13 @@ const ShowCars = ({siteLng})=>{
      const {t} = useTranslation()
     const [imageIndex,setImageIndex]=useState(0)
 
-    const Images = useSelector((state)=> state.mainCarsImagesReducer)
-   
+    const [Images , setImages] = useState([])
+     
+    useEffect(()=>{
+          axios.get("https://backend.tawseela.online/api/cars").then(response => {
+            setImages(response.data.data)
+          })
+    },[])
 
     const NextArrow = ({onClick}) => {
         return (
@@ -81,14 +86,14 @@ const ShowCars = ({siteLng})=>{
 
                     <div  className="sliderContainer"  >
                            <Slider {...setting} className="Slider" rtl={(siteLng==="ar")?true:false}>
-                                {Images.map((car,index)=>(
+                                {(Images)&&Images.map((car,index)=>(
                                     <div  key={index} className={(index === imageIndex)?"slideActive slide":"slide"}>
                                        {/* car image */}
-                                           <img src={car.image} alt={index} />
+                                           <img src={`https://backend.tawseela.online${car.image}`} alt={index} />
 
                                        {/* car info */}
                                       <div className="car-details" >
-                                         <h4 className="text-center">{car.name}</h4>
+                                         <h4 className="text-center">{car.car_name}</h4>
 
 
                                              {/* car year && reviews */}
@@ -96,10 +101,10 @@ const ShowCars = ({siteLng})=>{
                                              <div className="row text-center">
 
                                                 <div className="col-6">
-                                                <span className="year">{car.year}</span>
+                                                <span className="year">{car.model}</span>
                                                 </div>
                                                 <div className="col-6">
-                                                   <span className="review"><FontAwesomeIcon icon={faStar}/>{` ${car.star}  (${car.review} Reviews)`}</span>
+                                                   <span className="review"><FontAwesomeIcon icon={faStar}/>{` ${car.reviews_count}  (${car.reviews_count} Reviews)`}</span>
                                                 </div>
 
                                              </div>
@@ -117,13 +122,13 @@ const ShowCars = ({siteLng})=>{
                                                     <div className="col-4">
                                                         <div className="option">
                                                            <span className="opt-icon"><FontAwesomeIcon  icon={faRotateRight} /></span>
-                                                             {car.type}
+                                                             {car.geer}
                                                         </div>
                                                      </div>
                                                     <div className="col-4">
                                                         <div className="option">
                                                            <span className="opt-icon"><FontAwesomeIcon  icon={faCircleUser} /></span>
-                                                             {car.use}
+                                                             {car.price_per_kilo}
                                                         </div>
                                                     </div>
                                                 </div>

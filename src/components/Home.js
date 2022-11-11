@@ -1,5 +1,6 @@
 import React ,{useState,useEffect}from "react"
 import { useTranslation } from "react-i18next"
+import { useSelector , useDispatch } from "react-redux"
 // css
 import HomeStyle from "../css/home.module.css"
 
@@ -35,6 +36,9 @@ import Nav from "./Nav.js"
 
 const Home = ()=>{
     const {t} = useTranslation()
+
+    const language = useSelector((state)=> state.langReducer)
+    const dispatch = useDispatch()
 
     const [currentLangCode, setCurrentLangCode ] = useState('')
    
@@ -205,6 +209,9 @@ const Home = ()=>{
                     <div className={HomeStyle.copyright}>Copyright © 2022 Green Valley | Made Bassma Hussain</div>
                </div>
            </footer>
+
+
+           
 
         </div>
     )

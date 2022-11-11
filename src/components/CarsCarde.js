@@ -8,7 +8,7 @@ const CarsCards = ({cars})=>{
     return(
         <Fragment>
         {(cars)&&cars.map((car,indx)=>(
-            <div className="card">
+            <div className="card" key={indx}>
                   <img src={car.img} alt="..."/>
                   <div className='car_details text-center'>
                       <span className="car-name">{car.name}</span>

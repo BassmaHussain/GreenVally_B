@@ -1,4 +1,4 @@
-import React  from 'react';
+import React ,{useState,useEffect} from 'react';
 import { BrowserRouter , Route, Routes  } from "react-router-dom";
 import "./app.css"
 import Home from './components/Home';
@@ -12,21 +12,24 @@ import OPT from './components/OPT';
 import Cookies from "js-cookie";
 
 function App() {
-
+   const [currentLangCode, setCurrentLangCode ] = useState('')
+   
+   useEffect(()=>{
+      setCurrentLangCode(localStorage.getItem("i18nextLng"))
+   })
   return (
    <BrowserRouter>
    <div className="App"  >
-        
-   <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/loginPage" element={<Login />} />
-      <Route path="/signUpPage" element={<SignUp />} />
-      <Route path="/forgetpass" element={<ForgetPass />}></Route>
-      <Route path="/pin" element={<PinCode />}></Route>
-      <Route path="/resetpass" element={<ResetPassword />}></Route>
-      <Route path="/opt" element={<OPT />}></Route>
-      <Route path="/*" element={<Error404 />} />
-   </Routes>
+         <Routes>
+            <Route path="/" element={<Home />} />
+            <Route exact path="/loginPage" element={<Login />} />
+            <Route path="/signUpPage" element={<SignUp  />} />
+            <Route exact path="/loginPage/forgetpass" element={<ForgetPass />}></Route>
+            <Route path="/loginPage/forgetpass/pin" element={<PinCode />}></Route>
+            <Route path="/resetpass" element={<ResetPassword />}></Route>
+            <Route path="/opt" element={<OPT />}></Route>
+            <Route path="/*" element={<Error404 />} />
+         </Routes>
 </div>
    </BrowserRouter>
   );

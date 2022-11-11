@@ -46,9 +46,27 @@
     "rent_car":"Rent car",
     "feedbacks":"Feedbacks",
     "footer_text":" A company to rent cars for anyone who needs a great journey with a <br /> high privacy",
-    "contact_us":"Contact Us"
-
-
-
+    "contact_us":"Contact Us",
+    "sign_up":"Sign Up",
+    "sign_text":"Enter your required data to enjoy the services",
+    "sign_first_name":"First Name",
+    "sign_last_name":"Last Name",
+    "phone":"Phone",
+    "password":"Password",
+    "have_account":"Do you have an account ?",
+    "login_with_google":"Login with Google",
+    "login_with_facebook":"Login with facebook",
+    "login":"Login",
+    "enter_num_pass":"Enter your number and password",
+    "don't_have_account":"Don't have an account ?",
+    "forget_pass":"Forget your password ?",
+    "reset_pass":"Reset Password",
+    "enter_phone":"Enter your Phone",
+    "send":"Send",
+    "get_code":"You will get a code",
+    "enter_new_pass":"Enter New Password",
+    "submit":"Submit",
+    "new_pass":"New Password",
+    "log_out":"Log Out"
 
 }
