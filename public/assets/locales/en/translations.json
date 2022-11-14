@@ -67,6 +67,9 @@
     "enter_new_pass":"Enter New Password",
     "submit":"Submit",
     "new_pass":"New Password",
-    "log_out":"Log Out"
+    "log_out":"Log Out",
+    "from_loc":"Pick Up",
+    "to_loc":"Drop Off",
+    "current_loc":"Get Current Location"
 
 }
