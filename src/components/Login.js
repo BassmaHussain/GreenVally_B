@@ -7,6 +7,9 @@ import facebook from "../images/facebook.png"
 import { NavLink , useNavigate , useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import {signInWithPopup , FacebookAuthProvider} from "firebase/auth"
+import { authentication } from "../firebase_config"
+
 
 const Login =()=>{
   const {t}= useTranslation()
@@ -16,6 +19,16 @@ const Login =()=>{
   const [type, setType]= useState("password")
   const navigate = useNavigate()
  const location = useLocation();
+
+    //login with facebook
+    const loginWithFacebook =()=>{
+      const provider = new FacebookAuthProvider();
+      signInWithPopup(authentication,provider).then(res => {
+        console.log(res)
+        localStorage.setItem("auth",res.user.accessToken)
+        navigate('/')
+      }).catch(err => console.log(err)) 
+    }
 
   const handlePassword=()=>{
       if(passShow){
@@ -35,8 +48,8 @@ const Login =()=>{
 
                axios.post("https://backend.tawseela.online/api/login",{ phone:logedPhone,password:logedPass}).then((res)=>{
                 window.localStorage.setItem("auth",res.data.data.token)
-                const name = res.data.data.user.first_name
-                window.localStorage.setItem("userName",name)
+                /* const name = res.data.data.user.first_name
+                window.localStorage.setItem("userName",name) */
 
                 navigate('/')
               }
@@ -95,7 +108,7 @@ const Login =()=>{
                         <div className={`${LoginStyle.google} ${LoginStyle.log_with}`}>
                           <img  src={google} alt="google"/>  {t("login_with_google")}
                         </div>
-                        <div className={`${LoginStyle.facebook}  ${LoginStyle.log_with}`}>
+                        <div className={`${LoginStyle.facebook}  ${LoginStyle.log_with}`} onClick={loginWithFacebook}>
                           <img  src={facebook} alt="facebook"/>  {t("login_with_facebook")}
                         </div>
                 </div>

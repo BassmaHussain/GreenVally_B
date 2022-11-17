@@ -1,6 +1,7 @@
 import React ,{useState} from 'react';
 
 import Pagination from "react-js-pagination"
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 // images
 import Slider from "react-slick";
 //components
@@ -108,7 +109,7 @@ const AvailableCars = ({siteLng})=>{
 
       
     }
-    
+   
     return(
         <section  style={{textAlign:(siteLng==="ar")?"right":"left"}}>
             <div className='container'>
@@ -122,7 +123,9 @@ const AvailableCars = ({siteLng})=>{
                 <div className={(shown === 'available')?'active available_car cars_show':'non_active available_car cars_show'}>
                        <h5 className='av_title'>{t('available_cars')}</h5>
                        <div  className="all-cards">
-                           <CarsCards cars={currentCards}  />
+                           <ToastProvider>
+                               <CarsCards cars={currentCards}  />
+                           </ToastProvider>    
                        </div>
                       
                      

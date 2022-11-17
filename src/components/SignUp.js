@@ -6,8 +6,10 @@ import hideEyeIcon from "../images/invisible.png"
 import google from "../images/search.png"
 import facebook from "../images/facebook.png"
 import {useSelector , useDispatch} from "react-redux"
-import { NavLink } from "react-router-dom"
+import { NavLink , useNavigate} from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import {signInWithPopup , FacebookAuthProvider} from "firebase/auth"
+import { authentication } from "../firebase_config"
 
 const SignUp = ()=>{
 
@@ -20,6 +22,18 @@ const SignUp = ()=>{
 
     const userData = useSelector((User)=> User)
     const dispatch = useDispatch();
+    
+    const navigate = useNavigate()
+    //login with facebook
+    const loginWithFacebook =()=>{
+      const provider = new FacebookAuthProvider();
+      signInWithPopup(authentication,provider).then(res => {
+        console.log(res)
+        localStorage.setItem("auth",res.user.accessToken)
+        navigate('/')
+      }).catch(err => console.log(err)) 
+    }
+
 
     const makeAction = (type ,value) =>{
        const action = {type:type, payload:value}
@@ -97,7 +111,7 @@ const SignUp = ()=>{
                       <div className={`${SignStyle.google} ${SignStyle.log_with}`}>
                         <img  src={google} alt="google"/> {t("login_with_google")}
                       </div>
-                      <div className={`${SignStyle.facebook}  ${SignStyle.log_with}`}>
+                      <div className={`${SignStyle.facebook}  ${SignStyle.log_with}`} onClick={loginWithFacebook}>
                         <img  src={facebook} alt="facebook"/>   {t("login_with_facebook")}
                       </div>
               </div>

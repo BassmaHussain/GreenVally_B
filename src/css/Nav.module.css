@@ -39,14 +39,14 @@ nav{
 }
 .icon_global{
    /* margin: 0 39px; */
-    color: #fff;
+    color: rgb(206, 203, 203);
     cursor: pointer;
 }
 .icon_global .lang_drop{
     margin-right: 159px;
 }
 .icon_global .tog_btn{
-   color: #fff !important;
+   color: rgb(206, 203, 203) !important;
    font-size: 20px;
 }
 .icon_global .tog_btn:focus{
@@ -116,17 +116,22 @@ nav{
    margin-left: 150px;
    color:#547c0e!important; ;
 }
+.collapse_rtl ul .logoutli_rtl .logoutBtn{
+    background-color: #e91d1d;
+    color: #fff;
+}
+.collapse_rtl ul .logoutli_rtl .logoutBtn:hover{
+    background-color:#f14747
+}
 @media(max-width:991px) {
     .collapse_rtl ul .loginli button{
         margin-left: 0;
      }
 }
-.collapse_rtl ul  .icon_global .tog_btn span{
-    color: #000;
-}
-.collapse_rtl ul .icon_global  .tog_btn::after{
-    border-top: 0.3em solid #000 !important;
-}
+
 .collapse_rtl ul .icon_global .drop_menu{
     min-width: 100px !important;
+}
+.black{
+    color: #000 !important;
 }

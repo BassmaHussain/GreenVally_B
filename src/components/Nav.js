@@ -58,7 +58,7 @@ const handleChangeLanguage=(lng)=>{
 
                         <ul  className={(siteLng==="ar" && authState===true)?`navbar-nav ml-auto ${NavStyle.ul_rtl_auth}`:`navbar-nav ml-auto`} >
                             <li className={`${NavStyle.icon_global} mr-auto`}>
-                                 <div className={(siteLng==="en")? `${NavStyle.lang_drop} dropdown`:"dropdown"}>
+                                 <div className={(siteLng==="en")? `${NavStyle.lang_drop} dropdown`:"dropdown" }>
                                         <button className={`btn  dropdown-toggle ${NavStyle.tog_btn}`} type="button" data-toggle="dropdown" aria-expanded="false">
                                              <span><FontAwesomeIcon icon={faGlobe}  /></span>
                                         </button>
